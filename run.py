@@ -62,12 +62,16 @@ def get_protection(access_token, branch_name, owner, repo_name):
 
 def enable(protection):
     protection.enforce_admins.enable()
-    protection.required_pull_request_reviews.update(False, False, 1)
+    if match is not None:
+        protection.required_pull_request_reviews.update(False, False, 1)
+    else:
+        protection.update(True, None, { required_approving_review_count: 1 })
 
 
 def disable(protection):
     protection.enforce_admins.disable()
-    protection.required_pull_request_reviews.delete()
+    if match is not None:
+        protection.required_pull_request_reviews.delete()
 
 
 if __name__ == '__main__':
