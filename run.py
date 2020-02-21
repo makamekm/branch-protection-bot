@@ -62,10 +62,12 @@ def get_protection(access_token, branch_name, owner, repo_name):
 
 def enable(protection):
     protection.enforce_admins.enable()
+    protection.required_pull_request_reviews.enable()
 
 
 def disable(protection):
     protection.enforce_admins.disable()
+    protection.required_pull_request_reviews.disable()
 
 
 if __name__ == '__main__':
