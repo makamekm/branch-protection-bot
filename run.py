@@ -62,7 +62,7 @@ def get_protection(access_token, branch_name, owner, repo_name):
 
 def enable(protection):
     protection.enforce_admins.enable()
-    protection.required_pull_request_reviews.update(false, false, 1)
+    protection.required_pull_request_reviews.update(False, False, 1)
 
 
 def disable(protection):
