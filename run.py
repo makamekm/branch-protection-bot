@@ -65,7 +65,7 @@ def enable(protection):
     if protection.required_pull_request_reviews is not None:
         protection.required_pull_request_reviews.update(False, False, 1)
     else:
-        protection.update(True, None, { required_approving_review_count: 1 })
+        protection.update(True, None, { "required_approving_review_count": 1 })
 
 
 def disable(protection):
